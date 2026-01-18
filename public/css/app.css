@@ -1,0 +1,112 @@
+@import url('https://fonts.googleapis.com/css2?family=Bungee+Inline&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@291&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@1,500&display=swap');
+@import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css');
+@import 'tailwindcss';
+
+@source '../../vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php';
+@source '../../storage/framework/views/*.php';
+@source "../**/*.blade.php";
+@source "../**/*.js";
+@source "../**/*.vue";
+
+@theme {
+    --font-sans: 'Helvetica Neue', Helvetica, Arial, ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji',
+        'Segoe UI Symbol', 'Noto Color Emoji';
+    --font-fancy: "Bungee Inline", sans-serif;
+    --font-small: "Montserrat", sans-serif;
+    --font-logo: "Playfair Display", serif;
+}
+
+@utility font-fancy {
+  font-family: var(--font-fancy);
+}
+
+@utility font-small{
+    font-family: var(--font-small);
+}
+
+@utility font-logo{
+    font-family: var(--font-logo);
+    font-optical-sizing: auto;
+    font-weight: 500;
+    font-style: italic;
+}
+
+body {
+  background-color: black;
+}
+
+.smalltext::after {
+    position: absolute;
+    bottom: 40px;
+    left: 0;
+    right: 0;
+    content: '';
+    width: 30px;
+    height: 1px;
+    background: #ffffff;
+    margin: 0 auto;
+}
+
+.link-underline {
+	border-bottom-width: 0;
+	background-image: linear-gradient(transparent, transparent), linear-gradient(#000000, #070707);
+	background-size: 0 1px;
+	background-position: 0 100%;
+	background-repeat: no-repeat;
+	transition: background-size .5s ease-in-out;
+}
+
+.link-underline-black {
+	background-image: linear-gradient(transparent, transparent), linear-gradient(#ffffff, #ffffff)
+}
+
+.link-underline:hover {
+	background-size: 100% 1px;
+	background-position: 0 100%
+}
+
+section {
+  color: white;
+}
+
+section li {
+  background-color: black;
+  color: #ffffff;
+}
+
+section a {
+  color: #ffffff;
+}
+
+@keyframes flicker {
+  0%, 20%, 30%, 50% {
+    color: #18181b; /* dark/off */
+  }
+  55%, 65% {
+    color: #71717a; /* flicker gray */
+  }
+  70%, 100% {
+    color: white; /* fully on */
+  }
+}
+
+.letter {
+  display: inline-block;
+  color: white;
+  animation: flicker 0.8s ease-in-out;
+  animation-fill-mode: both;
+}
+
+.letter-1 {
+  animation: letter-flicker 1s ease-in-out 0s forwards;
+}
+
+.letter-2 {
+  animation: letter-flicker 0.3s ease-in-out 0.2s forwards;
+}
+
+.letter-3 {
+  animation: letter-flicker 0.3s ease-in-out 0.4s forwards;
+}
